@@ -19,7 +19,7 @@ public class CLI {
         System.out.println("Menu");
         System.out.println("1. Validador de nombres");
         System.out.println("2. Lista de numeros pares");
-        System.out.println("3. Menú");
+        System.out.println("3. Salir del Menu");
 
     }
 
