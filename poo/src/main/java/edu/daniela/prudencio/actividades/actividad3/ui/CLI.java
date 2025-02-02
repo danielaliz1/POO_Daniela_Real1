@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 public class CLI {
 
+  /**
+     * Método principal que ejecuta la aplicación de la CLI.
+     * Permite la interacción con el usuario a través de un menú.
+     */
+
     public static void runApp() {
         Scanner scanner = new Scanner(System.in);
         StockStore stockstore = new StockStore();
@@ -17,11 +22,11 @@ public class CLI {
         while (opcion_menu != 4) {
             switch (opcion_menu) {
                 case 1:
-                    System.out.println("Introduce el código del producto");
+                    System.out.println("Introduce el código del producto:");
                     String codigo = scanner.nextLine();
-                    System.out.println("Introduce el tipo");
+                    System.out.println("Introduce el tipo:");
                     String tipo = scanner.nextLine();
-                    System.out.println("Introduce el costo");
+                    System.out.println("Introduce el costo:");
                     Double costo = scanner.nextDouble();
                     scanner.nextLine(); 
 
@@ -51,15 +56,25 @@ public class CLI {
         scanner.close();
     }
 
+    /**
+     * Muestra el menú de opciones en la consola.
+     */
+        
     public static void showMenu() {
-        System.out.println("====✿=✿=✿ Menú ✿=✿=✿====");
-        System.out.println("========================");
-        System.out.println("=  1. Añadir producto  =");
-        System.out.println("= 2. Mostrar productos =");
-        System.out.println("=      3. Comparar     =");
-        System.out.println("=       4. Salir       =");
-        System.out.println("========================");
+        System.out.println("\u001B[35m"  +"====✿=✿=✿ Menú ✿=✿=✿====");
+        System.out.println("\u001B[35m"+  "========================" );
+        System.out.println("\u001B[0m"+ "=  1. Añadir producto  =" );
+        System.out.println("= 2. Mostrar productos =" + "\u001B[0m");
+        System.out.println("=      3. Comparar     =" + "\u001B[0m");
+        System.out.println("=       4. Salir       =" + "\u001B[0m");
+        System.out.println("\u001B[35m"+ "========================" +"\u001B[0m");
     }
+
+    /**
+     * Compara el precio de venta de dos productos basados en su código.
+     * 
+     * @param stockstore La instancia de StockStore donde se encuentran los productos.
+     */
 
     public static void compararProductos(StockStore stockstore) {
         Scanner scanner = new Scanner(System.in);
@@ -76,8 +91,10 @@ public class CLI {
             return;
         }
 
+
         double precioP1 = p1.calcularPrecio(20.0);
         double precioP2 = p2.calcularPrecio(20.0); 
+
 
         if (precioP1 > precioP2) {
             System.out.println("El producto con mayor precio de venta es: " + p1.getCodigo() + " con un precio de $" + precioP1);
